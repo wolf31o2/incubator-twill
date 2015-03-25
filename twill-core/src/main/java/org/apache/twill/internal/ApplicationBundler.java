@@ -177,7 +177,7 @@ public final class ApplicationBundler {
     }
 
     // Record the set of classpath URL that are already added to the jar
-    final Set<URL> seensClassPaths = Sets.newHashSet();
+    final Set<URL> seenClassPaths = Sets.newHashSet();
     Dependencies.findClassDependencies(classLoader, new Dependencies.ClassAcceptor() {
       @Override
       public boolean accept(String className, URL classUrl, URL classPathUrl) {
@@ -201,7 +201,7 @@ public final class ApplicationBundler {
           }
         }
 
-        if (seensClassPaths.add(classPathUrl)) {
+        if (seenClassPaths.add(classPathUrl)) {
           putEntry(className, classUrl, classPathUrl, entries, jarOut);
         }
         return true;
